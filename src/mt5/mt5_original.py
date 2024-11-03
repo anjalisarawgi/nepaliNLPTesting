@@ -25,30 +25,23 @@
 from transformers import MT5ForConditionalGeneration, MT5Tokenizer
 import torch
 
-# Load the original pre-trained mT5 model and tokenizer
-model_name = "google/mt5-small"  # You can also try "google/mt5-base" for better performance if resources allow
+model_name = "google/mt5-small"  
 model = MT5ForConditionalGeneration.from_pretrained(model_name)
 tokenizer = MT5Tokenizer.from_pretrained(model_name)
 
-# Move model to GPU if available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
-# Define a longer Nepali text to summarize
-# Define a longer Nepali text to summarize
 text_to_summarize = (
     "नेपालको अर्थतन्त्रले महामारीको कारणले ठूलो असर बेहोरेको छ। यो असर पर्यटन, रेमिटेन्स, र व्यवसायमा देखिएको छ। "
     "कोरोना भाइरसको संक्रमणका कारण नेपालमा पर्यटक आगमन लगभग पूर्ण रूपमा रोकिएको छ, जसले देशको आर्थिक वृद्धिमा ठूलो असर पुर्याएको छ। "
     "यस्तै, विदेशमा रोजगारी गुमाएका नेपालीहरूले पठाउने रेमिटेन्समा समेत गिरावट आएको छ। अर्थशास्त्रीहरूका अनुसार, सरकारले ठोस आर्थिक नीति नल्याउने हो भने यसले दीर्घकालीन आर्थिक संकट निम्त्याउन सक्छ।"
 )
 
-# Format the input text with a summarization prompt
 input_text = f"summarize: {text_to_summarize}"
 
-# Tokenize the input and move it to the same device as the model
 inputs = tokenizer(input_text, return_tensors="pt").to(device)
 
-# Generate the summary
 generated_output = model.generate(
     **inputs,
     max_length=50,
