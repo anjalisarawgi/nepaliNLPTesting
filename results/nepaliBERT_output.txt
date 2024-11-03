@@ -1,0 +1,136 @@
+Results saved in file:
+
+Original Sentence: तिमीलाई कस्तो [MASK].
+Score: 0.3264
+Predicted Sequence: तिमीलाई कसतो छ.
+Token: 373
+Token String: छ
+------
+Score: 0.2169
+Predicted Sequence: तिमीलाई कसतो होला.
+Token: 2890
+Token String: होला
+------
+Score: 0.0732
+Predicted Sequence: तिमीलाई कसतो भयो.
+Token: 2231
+Token String: भयो
+------
+Score: 0.0560
+Predicted Sequence: तिमीलाई कसतो थियो.
+Token: 1817
+Token String: थियो
+------
+Score: 0.0309
+Predicted Sequence: तिमीलाई कसतो छन.
+Token: 2650
+Token String: छन
+------
+
+Original Sentence: आजको मौसम [MASK] छ?
+Score: 0.1182
+Predicted Sequence: आजको मौसम खराब छ?
+Token: 7208
+Token String: खराब
+------
+Score: 0.1032
+Predicted Sequence: आजको मौसम यही छ?
+Token: 2909
+Token String: यही
+------
+Score: 0.0816
+Predicted Sequence: आजको मौसम बदलिएको छ?
+Token: 19032
+Token String: बदलिएको
+------
+Score: 0.0704
+Predicted Sequence: आजको मौसम सफा छ?
+Token: 5704
+Token String: सफा
+------
+Score: 0.0634
+Predicted Sequence: आजको मौसम क छ?
+Token: 367
+Token String: क
+------
+
+Original Sentence: नेपालको [MASK] काठमाडौं हो।
+Score: 0.9836
+Predicted Sequence: नपालको राजधानी काठमाडौ हो ।
+Token: 3873
+Token String: राजधानी
+------
+Score: 0.0035
+Predicted Sequence: नपालको नाम काठमाडौ हो ।
+Token: 2254
+Token String: नाम
+------
+Score: 0.0011
+Predicted Sequence: नपालको शहर काठमाडौ हो ।
+Token: 3782
+Token String: शहर
+------
+Score: 0.0007
+Predicted Sequence: नपालको पनि काठमाडौ हो ।
+Token: 1724
+Token String: पनि
+------
+Score: 0.0007
+Predicted Sequence: नपालको लागि काठमाडौ हो ।
+Token: 1774
+Token String: लागि
+------
+
+Original Sentence: तिमी [MASK] छन्।
+Score: 0.1501
+Predicted Sequence: तिमी खसी छन ।
+Token: 11106
+Token String: खसी
+------
+Score: 0.1132
+Predicted Sequence: तिमीसग छन ।
+Token: 13992
+Token String: ##सग
+------
+Score: 0.0377
+Predicted Sequence: तिमी एकल छन ।
+Token: 5778
+Token String: एकल
+------
+Score: 0.0317
+Predicted Sequence: तिमी तयार छन ।
+Token: 2805
+Token String: तयार
+------
+Score: 0.0274
+Predicted Sequence: तिमी सग छन ।
+Token: 9594
+Token String: सग
+------
+
+Original Sentence: यो [MASK] किताब हो।
+Score: 0.1923
+Predicted Sequence: यो एउटा किताब हो ।
+Token: 2259
+Token String: एउटा
+------
+Score: 0.1484
+Predicted Sequence: यो पहिलो किताब हो ।
+Token: 2232
+Token String: पहिलो
+------
+Score: 0.0448
+Predicted Sequence: यो एक किताब हो ।
+Token: 1791
+Token String: एक
+------
+Score: 0.0313
+Predicted Sequence: यो पनि किताब हो ।
+Token: 1724
+Token String: पनि
+------
+Score: 0.0229
+Predicted Sequence: यो नया किताब हो ।
+Token: 6515
+Token String: नया
+------
