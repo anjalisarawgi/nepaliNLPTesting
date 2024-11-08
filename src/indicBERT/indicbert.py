@@ -24,7 +24,7 @@ with open(output_path, "w") as file:
         output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
         file.write(f"Input Sentence {i}: {test_text}\n")
         file.write(f"Generated Text {i}: {output_text}\n\n")
-
+print("yes")
 print(f"Results saved!")
 
 # # finetuning dataset
