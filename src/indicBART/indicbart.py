@@ -2,12 +2,23 @@
 from transformers import MBartForConditionalGeneration, AutoModelForSeq2SeqLM
 from transformers import AlbertTokenizer, AutoTokenizer, TrainingArguments, Trainer
 from datasets import load_dataset
-
 import tensorflow as tf
 import torch
 import wandb 
+import os
+import shutil
 
-wandb.init(project="indicBART-finetuning", name="indicBART_finetune_full")
+# Google Drive paths
+# output_dir = "/content/drive/MyDrive/training_outputs"
+# model_dir = f"{output_dir}/indicbart-finetuned"
+# results_dir = f"{output_dir}/results"
+
+
+# os.environ["WANDB_MODE"] = "disabled"
+# os.makedirs(model_dir, exist_ok=True)
+# os.makedirs(results_dir, exist_ok=True)
+
+wandb.init(project="indicBART-finetuning", name="indicBART_finetune")
 
 
 print(tf.config.list_physical_devices('GPU'))
@@ -63,15 +74,16 @@ print(eval_dataset[0])
 
 training_args = TrainingArguments(
     output_dir="models/indicbart-finetuned",
+    # output_dir=model_dir,
     evaluation_strategy="steps",
     learning_rate=5e-5,
-    per_device_train_batch_size=8,
+    per_device_train_batch_size=4,
     num_train_epochs=3,
     weight_decay=0.01,
-    save_steps=500,
-    save_total_limit=2,
-    logging_steps=500,              # Log training metrics every 500 steps
-    eval_steps=500, 
+    save_steps=5000,
+    save_total_limit=1,
+    logging_steps=5000,              # Log training metrics every 500 steps
+    eval_steps=5000, 
     report_to="wandb",
 )
 
@@ -87,6 +99,8 @@ trainer.train()
 
 trainer.save_model("models/indicbart_finetuned_full_sanjeev")
 tokenizer.save_pretrained("models/indicbart_finetuned_full_sanjeev")
+# trainer.save_model(model_dir)
+# tokenizer.save_pretrained(model_dir)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
@@ -121,6 +135,7 @@ test_sentences = [
 ]
 
 output_path = "results/indicBART/finetuned_full_sanjeev.txt"
+# output_path = f"{results_dir}/finetuned_full_sanjeev.txt"
 description = "This results are for indicBART on full set of samples finetuning with 5 varying sentences to check its abilities better"
 
 with open(output_path, "w") as file:
@@ -134,3 +149,4 @@ with open(output_path, "w") as file:
         file.write(f"Generated Text {i}: {output_text}\n\n")
 
 print(f"Results saved!")
+
