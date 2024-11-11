@@ -22,4 +22,7 @@ This project aims to improve a language model (LLM) specifically for Nepali. Whi
 - [ ] Pipeline development
 - [ ] Final pipeline testing
 - [ ] Fine tune it on old nepali (possibility of creating synthetic data) 
-- [ ] Old Nepali testing 
+- [ ] Old Nepali testing
+
+## Possible Pipeline (yet to finalize) 
+- [step 1] Start with an indicBART to make the model understand the language better (sequence-to-sequence)
