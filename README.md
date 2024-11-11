@@ -14,6 +14,7 @@ This project aims to improve a language model (LLM) specifically for Nepali. Whi
 - There are many language models built for indian languages today but focusing on one specific language (Nepali) would help us pick up the nuances better
 - Task specific focus
 - Enhance fluency and coherence in Nepali sentences
+- A rule based approach (need to check more on this)
 
 ## Tasks & To-Do List
 - [ ] Model Testing
@@ -25,4 +26,9 @@ This project aims to improve a language model (LLM) specifically for Nepali. Whi
 - [ ] Old Nepali testing
 
 ## Possible Pipeline (yet to finalize) 
-- [step 1] Start with an indicBART to make the model understand the language better (sequence-to-sequence)
+1. Start with an indicBART to make the model understand the language better (sequence-to-sequence) (if we have a dataset with incorrect and correct sentences OR labeled gramatical corrections it could help! - but maybe we can also just create synthetic dataset for this)
+2. Add indicBERT for token level error detection (but should we run this before indicBART?)
+3. Add a rule based system for Common Nepali Grammar rules. The goal is to identifythe grammar and syntax patterns unique to nepali tha
+4. Maybe, use fill-masks to handle contexual word choices (check XLM-Roberta or mBERT for this)
+5. Old nepali -- to be checked
+6. also check for the applications of speech data / cultural relevance etc
