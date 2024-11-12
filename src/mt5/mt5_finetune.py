@@ -4,26 +4,39 @@ from transformers import MT5ForConditionalGeneration, MT5Tokenizer, Trainer, Tra
 from transformers import TrainingArguments
 from transformers import Trainer
 
-dataset = load_dataset("sanjeev-bhandari01/nepali-summarization-dataset", split="train[:5000]")
+dataset = load_dataset("IRIISNEPAL/Nepali-Text-Corpus", split="train[:5000]")
 print(dataset.column_names)
 
 model_name = "google/mt5-small"
 model = MT5ForConditionalGeneration.from_pretrained(model_name)
 tokenizer = MT5Tokenizer.from_pretrained(model_name)
 
+# def preprocess_function(examples):
+#     inputs = [text for text in examples["article"]]
+#     model_inputs = tokenizer(inputs, max_length=256, padding="max_length", truncation=True)
+
+#     # Use 'title' as the target label and set a shorter max_length to reduce padding
+#     labels = tokenizer(examples["title"], max_length=64, padding="max_length", truncation=True)
+#     model_inputs["labels"] = [
+#         [-100 if token == tokenizer.pad_token_id else token for token in label]
+#         for label in labels["input_ids"]
+#     ]
+
+#     return model_inputs
+
 def preprocess_function(examples):
-    inputs = [text for text in examples["article"]]
+    # Use the "Article" column as input
+    inputs = [text for text in examples["Article"]]
     model_inputs = tokenizer(inputs, max_length=256, padding="max_length", truncation=True)
 
-    # Use 'title' as the target label and set a shorter max_length to reduce padding
-    labels = tokenizer(examples["title"], max_length=64, padding="max_length", truncation=True)
+    # Adjust this line if you have a target column or remove if you don't need labels
+    labels = tokenizer(inputs, max_length=64, padding="max_length", truncation=True)
     model_inputs["labels"] = [
         [-100 if token == tokenizer.pad_token_id else token for token in label]
         for label in labels["input_ids"]
     ]
 
     return model_inputs
-
 tokenized_datasets = dataset.map(preprocess_function, batched=True)
 print(tokenized_datasets[0])
 # split
@@ -34,12 +47,12 @@ print(train_dataset[0])
 print(eval_dataset[0])
 
 training_args = TrainingArguments(
-    output_dir="./results",
+    output_dir="models/finetuned_mt5_iris",
     evaluation_strategy="epoch",
     learning_rate=5e-6,
     per_device_train_batch_size=4,
     per_device_eval_batch_size=4,
-    num_train_epochs=2,
+    num_train_epochs=3,
     weight_decay=0.01,
     save_steps=500,
     save_total_limit=2,
@@ -61,10 +74,10 @@ for param in model.parameters():
 # Fine-tune the model
 trainer.train()
 
-# Save the fine-tuned model and tokenizer
-trainer.save_model("results/fine_tuned_model")
-tokenizer.from_pretrained("results/fine_tuned_model")
-model.from_pretrained("results/fine_tuned_model")
+# # Save the fine-tuned model and tokenizer
+# trainer.save_model("models/finetuned_mt5_iris")
+tokenizer = tokenizer.from_pretrained("models/finetuned_mt5_iris/checkpoint-1500")
+model = model.from_pretrained("models/finetuned_mt5_iris/checkpoint-1500")
 
 
 ## for google colab
@@ -97,3 +110,17 @@ for text in test_texts:
     summary_ids = model.generate(**inputs, max_length=50, num_beams=4, early_stopping=True)
     summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
     print(f"Summary: {summary}")
+ 
+# Generate summaries with the fine-tuned model and save them to a file
+with open("summaries.txt", "w") as file:
+    for idx, text in enumerate(test_texts):
+        input_text = f"summarize: {text}"
+        inputs = tokenizer(input_text, return_tensors="pt").to(device)
+        summary_ids = model.generate(**inputs, max_length=50, num_beams=4, early_stopping=True)
+        summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+        
+        # Write each summary to the file with a title for clarity
+        file.write(f"Summary {idx + 1}:\n{summary}\n\n")
+        print(f"Summary {idx + 1}: {summary}")  # Also print to console for reference
+
+print("Summaries saved to summaries.txt")

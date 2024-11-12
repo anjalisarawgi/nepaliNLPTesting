@@ -1,0 +1,11 @@
+Summarization Example:
+पड़ोसी नेपाल दक्षिण एसियामा अवस्थित एक हिमाली देश हो। यसको कुल क्षेत्रफल लगभग १,४७,५१६ वर्ग किलोमिटर छ। नेपाललाई तीन प्रमुख भौगोलिक क्षेत्रहरूमा विभाजन गरिएको छ: हिमाल, पहाड, र तराई। हिमाली क्षेत्रमा विश्वकै अग्लो पर्वत सगरमाथा र अन्य हिमालहरू पर्छन्, जसले नेपाललाई विशेष पर्यटकीय गन्तव्य बनाएको छ। पहाडी पर्वत सगरमाथा र अन्य हिमालहरू पर्छन्, जसले नेपाललाई विशेष पर्यटकीय गन्तव्य बनाएको छ। पहाडी क्षेत्र[CLS]
+
+Question Answering Example:
+इसलामिक Context: नेपालमा गौतम बुद्धको जन्म लुम्बिनीमा भएको थियो। Question: गौतम बुद्धको जन्म लुम्बिनीमा भएको थियो। Question: गौतम बुद्धको जन्मस्थान कहाँ हो? भारत? Question: गौतम बुद्धको जन्मस्थान कहाँ हो? उत्तर उत्तर उत्तर उत्तर उत्तर उत्तर उत्तर उत्तर उत्तर गौतम बुद्धको जन्मस्थान कहाँ हो? हिंदु? हिंदू? उत्तर उत्तर उत्तर उत्तर उत्तर उत्तर उत्तर उत्तर उत्तर उत्तर उत्तर उत्तर नेपालमा गौतम बुद्धको जन्मस्थान कहाँ हो? हिंदू? हिंदु? Question: नेपालमा गौतम बुद्धको जन्मस्थान कहाँ हो? उत्तर उत्तर उत्तर नेपालमा गौतम बुद्धको जन्मस्थान कहाँ हो[CLS]
+
+Translation Example:
+हिंदी: नेपाल हिमालको देश हो।बांला Translate to Hindi: नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो। नेपाल हिमालको देश हो[CLS]
+
+Classification Example:
+उन्न Classify: सगरमाथा संसारको सबैभन्दा अग्लो पर्वत हो। Labels: Geography, History, Culture, Tourism Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi Hindi La La La La La La La La La La La[CLS]

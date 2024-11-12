@@ -1,6 +1,5 @@
 
-from transformers import MBartForConditionalGeneration, AutoModelForSeq2SeqLM
-from transformers import AlbertTokenizer, AutoTokenizer, TrainingArguments, Trainer
+from transformers import AutoModelForSeq2SeqLM, AlbertTokenizer, AutoTokenizer, TrainingArguments, Trainer
 from datasets import load_dataset
 import tensorflow as tf
 import torch
@@ -50,21 +49,35 @@ model = AutoModelForSeq2SeqLM.from_pretrained("ai4bharat/IndicBART")
 # print(f"Results saved!")
 
 # # finetuning dataset
-dataset = load_dataset("sanjeev-bhandari01/nepali-summarization-dataset",  split="train") # split="train[:500]"
+dataset = load_dataset("IRIISNEPAL/Nepali-Text-Corpus",  split="train[:50000]") # split="train[:500]"
 print("dataset.column_names", dataset.column_names)
 
+# def preprocess_data(examples):
+#     inputs = [text for text in examples["article"]]
+#     targets = [summary for summary in examples["title"]]
+
+#     model_inputs = tokenizer(inputs, max_length=128, padding="max_length", truncation=True)
+
+#     with tokenizer.as_target_tokenizer():
+#         labels = tokenizer(targets, max_length=128, padding="max_length", truncation=True)
+
+#     model_inputs["labels"] = labels["input_ids"]
+#     return model_inputs
+
 def preprocess_data(examples):
-    inputs = [text for text in examples["article"]]
-    targets = [summary for summary in examples["title"]]
+    # Use the "Article" column as input
+    inputs = [text for text in examples["Article"]]
+    model_inputs = tokenizer(inputs, max_length=256, padding="max_length", truncation=True)
 
-    model_inputs = tokenizer(inputs, max_length=128, padding="max_length", truncation=True)
+    # Adjust this line if you have a target column or remove if you don't need labels
+    labels = tokenizer(inputs, max_length=64, padding="max_length", truncation=True)
+    model_inputs["labels"] = [
+        [-100 if token == tokenizer.pad_token_id else token for token in label]
+        for label in labels["input_ids"]
+    ]
 
-    with tokenizer.as_target_tokenizer():
-        labels = tokenizer(targets, max_length=128, padding="max_length", truncation=True)
-
-    model_inputs["labels"] = labels["input_ids"]
     return model_inputs
-
+    
 tokenized_dataset = dataset.map(preprocess_data, batched=True)
 train_test_split = tokenized_dataset.train_test_split(test_size=0.2)
 train_dataset = train_test_split["train"]
@@ -97,12 +110,13 @@ trainer = Trainer(
 # Train the model
 trainer.train()
 
-trainer.save_model("models/indicbart_finetuned_full_sanjeev")
-tokenizer.save_pretrained("models/indicbart_finetuned_full_sanjeev")
+trainer.save_model("models/indicbart_finetuned_50000_iris")
+tokenizer = tokenizer.save_pretrained("models/indicbart_finetuned_50000_iris")
 # trainer.save_model(model_dir)
 # tokenizer.save_pretrained(model_dir)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print('Device using:', device)
 model.to(device)
 
 test_sentences = [
@@ -134,7 +148,7 @@ test_sentences = [
     "नेपालको प्रमुख नदीहरूमा कर्णाली, गण्डकी र कोशी पर्छन्।"
 ]
 
-output_path = "results/indicBART/finetuned_full_sanjeev.txt"
+output_path = "results/indicBART/finetuned_50000_iris.txt"
 # output_path = f"{results_dir}/finetuned_full_sanjeev.txt"
 description = "This results are for indicBART on full set of samples finetuning with 5 varying sentences to check its abilities better"
 
