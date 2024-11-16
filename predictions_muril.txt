@@ -1,0 +1,12 @@
+Sentence: यो एउटा परीक्षण वाक्य हो।
+Predicted class: 1
+
+Sentence: नेपालको राजधानी काठमाडौँ हो।
+Predicted class: 1
+
+Sentence: आज मौसम धेरै राम्रो छ।
+Predicted class: 1
+
+Sentence: तिमी कस्तो छौ?
+Predicted class: 1
+

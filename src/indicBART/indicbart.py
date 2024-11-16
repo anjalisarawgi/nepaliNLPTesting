@@ -7,7 +7,7 @@ import wandb
 import os
 import shutil
 
-wandb.init(project="indicBART-finetuning", name="indicBART_finetune")
+# wandb.init(project="indicBART-finetuning", name="indicBART_finetune")
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Device:", device)
@@ -17,9 +17,9 @@ model = AutoModelForSeq2SeqLM.from_pretrained("ai4bharat/IndicBART")
 
 
 # finetuning dataset
-# dataset = load_dataset("sanjeev-bhandari01/XLSum-nepali-summerization-dataset",  split="train")
+# dataset = load_dataset("sanjeev-bhandari01/XLSum-nepali-summerization-dataset",  split="train[:5000]")
 # print("dataset.column_names", dataset.column_names)
-dataset = load_dataset("IRIISNEPAL/Nepali-Text-Corpus",  split="train[:50]")
+dataset = load_dataset("IRIISNEPAL/Nepali-Text-Corpus",  split="train")
 print("dataset.column_names", dataset.column_names)
 
 
@@ -37,7 +37,7 @@ print("dataset.column_names", dataset.column_names)
 #     return model_inputs
 
 
-##### IRIIS
+#### IRIIS
 # Preprocess function for language modeling or any task without explicit labels
 def preprocess_data(examples):
     inputs = examples["Article"]
@@ -64,7 +64,7 @@ training_args = TrainingArguments(
     save_total_limit=1,
     logging_steps=5000,            
     eval_steps=5000, 
-    report_to="wandb",
+    # report_to="wandb",
 )
 
 trainer = Trainer(
