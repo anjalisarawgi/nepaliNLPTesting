@@ -1,0 +1,51 @@
+input,prediction,score
+Nepal is a [MASK] देश।,Nepal is a Himalayan देश ।,0.6270791888237
+Nepal is a [MASK] देश।,Nepal is a sovereign देश ।,0.08927831798791885
+Nepal is a [MASK] देश।,Nepal is a developed देश ।,0.022736256942152977
+Nepal is a [MASK] देश।,Nepal is a developing देश ।,0.020810961723327637
+Nepal is a [MASK] देश।,Nepal is a Buddhist देश ।,0.0206060279160738
+Kathmandu [MASK] नेपालको राजधानी हो।,"Kathmandu , नेपालको राजधानी हो ।",0.25964710116386414
+Kathmandu [MASK] नेपालको राजधानी हो।,Kathmandu ) नेपालको राजधानी हो ।,0.10007824748754501
+Kathmandu [MASK] नेपालको राजधानी हो।,Kathmandu () नेपालको राजधानी हो ।,0.046261437237262726
+Kathmandu [MASK] नेपालको राजधानी हो।,Kathmandu अहिले नेपालको राजधानी हो ।,0.042598042637109756
+Kathmandu [MASK] नेपालको राजधानी हो।,Kathmandu वर्तमान नेपालको राजधानी हो ।,0.03662388026714325
+Pokhara is famous for [MASK] पर्यटक।,Pokh ##ara is famous for its पर्यटक ।,0.8405429124832153
+Pokhara is famous for [MASK] पर्यटक।,Pokh ##ara is famous for the पर्यटक ।,0.007905972190201283
+Pokhara is famous for [MASK] पर्यटक।,Pokh ##ara is famous for his पर्यटक ।,0.005579856224358082
+Pokhara is famous for [MASK] पर्यटक।,Pokh ##ara is famous for their पर्यटक ।,0.005506057292222977
+Pokhara is famous for [MASK] पर्यटक।,Pokh ##ara is famous for tourist पर्यटक ।,0.004816140979528427
+Dashain is a festival of [MASK] र खुशी।,Dash ##ain is a festival of खुशी र खुशी ।,0.15946926176548004
+Dashain is a festival of [MASK] र खुशी।,Dash ##ain is a festival of उत्साह र खुशी ।,0.07852994650602341
+Dashain is a festival of [MASK] र खुशी।,Dash ##ain is a festival of उल्लास र खुशी ।,0.07412657886743546
+Dashain is a festival of [MASK] र खुशी।,Dash ##ain is a festival of हर्ष र खुशी ।,0.06258804351091385
+Dashain is a festival of [MASK] र खुशी।,Dash ##ain is a festival of श्रद्धा र खुशी ।,0.0624370314180851
+I [MASK] बिहान उठ्छु।,I म बिहान उठ ##्छ ##ु ।,0.45143041014671326
+I [MASK] बिहान उठ्छु।,I आज बिहान उठ ##्छ ##ु ।,0.07733558863401413
+I [MASK] बिहान उठ्छु।,I भोलि बिहान उठ ##्छ ##ु ।,0.0461447648704052
+I [MASK] बिहान उठ्छु।,I : बिहान उठ ##्छ ##ु ।,0.03624998778104782
+I [MASK] बिहान उठ्छु।,I अब बिहान उठ ##्छ ##ु ।,0.023952923715114594
+म यो song [MASK] मन पराउँछु।,म यो song धेरै मन परा ##उँछु ।,0.1744375377893448
+म यो song [MASK] मन पराउँछु।,म यो song लाई मन परा ##उँछु ।,0.16290438175201416
+म यो song [MASK] मन पराउँछु।,म यो song निकै मन परा ##उँछु ।,0.1497834473848343
+म यो song [MASK] मन पराउँछु।,म यो song पनि मन परा ##उँछु ।,0.06961725652217865
+म यो song [MASK] मन पराउँछु।,म यो song ##लाई मन परा ##उँछु ।,0.058103691786527634
+This place is known for [MASK] हरियाली।,This place is known for its हरियाली ।,0.6362282037734985
+This place is known for [MASK] हरियाली।,This place is known for their हरियाली ।,0.016384528949856758
+This place is known for [MASK] हरियाली।,This place is known for the हरियाली ।,0.01352615561336279
+This place is known for [MASK] हरियाली।,This place is known for ancient हरियाली ।,0.008148440159857273
+This place is known for [MASK] हरियाली।,This place is known for beautiful हरियाली ।,0.007295595481991768
+Education is the [MASK] of जीवन।,Education is the सार of जीवन ।,0.2619829475879669
+Education is the [MASK] of जीवन।,Education is the प्राण of जीवन ।,0.049634214490652084
+Education is the [MASK] of जीवन।,Education is the essence of जीवन ।,0.03296496719121933
+Education is the [MASK] of जीवन।,Education is the आधार of जीवन ।,0.031608693301677704
+Education is the [MASK] of जीवन।,Education is the meaning of जीवन ।,0.01447195652872324
+It is [MASK] चिसो outside today।,It is very चिसो outside today ।,0.28252097964286804
+It is [MASK] चिसो outside today।,It is not चिसो outside today ।,0.11640794575214386
+It is [MASK] चिसो outside today।,It is the चिसो outside today ।,0.047196391969919205
+It is [MASK] चिसो outside today।,It is so चिसो outside today ।,0.04090292006731033
+It is [MASK] चिसो outside today।,It is really चिसो outside today ।,0.0334957018494606
+Nepal [MASK] development मा अगाडि बढिरहेको छ।,Nepal economic development मा अगाडि बढिरहेको छ ।,0.25196006894111633
+Nepal [MASK] development मा अगाडि बढिरहेको छ।,Nepal sustainable development मा अगाडि बढिरहेको छ ।,0.05534342676401138
+Nepal [MASK] development मा अगाडि बढिरहेको छ।,Nepal आर्थिक development मा अगाडि बढिरहेको छ ।,0.04049984738230705
+Nepal [MASK] development मा अगाडि बढिरहेको छ।,Nepal पूर्वाधार development मा अगाडि बढिरहेको छ ।,0.026937322691082954
+Nepal [MASK] development मा अगाडि बढिरहेको छ।,Nepal infrastructure development मा अगाडि बढिरहेको छ ।,0.021019602194428444
