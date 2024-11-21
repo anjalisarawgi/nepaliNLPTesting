@@ -1,6 +1,6 @@
 from datasets import load_dataset
 
-access_token ="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"
+access_token ="your_token"
 dataset = load_dataset("oscar-corpus/OSCAR-2201",
                         # use_auth_token=True, # required
                         language="ne", 
